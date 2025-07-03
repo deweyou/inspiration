@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import styles from './index.module.less';
-import { useLocalStorage } from '@uidotdev/usehooks';
+import { useDocumentTitle, useLocalStorage } from '@uidotdev/usehooks';
 import { Theme } from '##/types';
 import { StorageKey } from '##/constants';
 import { useWillMount } from '##/hooks';
@@ -8,6 +8,8 @@ import { useWillMount } from '##/hooks';
 const getSystemTheme = () => (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
 export const ToggleTheme = () => {
+   useDocumentTitle('Inspiration / Toggle Theme');
+   
   const [{ theme, isSystemTheme }, setTheme] = useLocalStorage<{ theme: Theme; isSystemTheme: boolean }>(StorageKey.THEME, {
     theme: getSystemTheme(),
     isSystemTheme: true,

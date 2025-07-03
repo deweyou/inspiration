@@ -3,8 +3,7 @@ import styles from './index.module.less';
 import { useDocumentTitle } from '@uidotdev/usehooks';
 
 export const Home = () => {
-
-  useDocumentTitle('Home');
+  useDocumentTitle('Inspiration');
 
   return (
     <div className={styles.home}>

@@ -16,7 +16,6 @@ export const Layout = () => {
       isSystemTheme: true,
     });
   
-  
     const onThemeChange = useCallback((theme: Theme, isSystemTheme = false) => {
       document.documentElement.setAttribute('data-theme', theme);
         if (theme === 'dark') {
