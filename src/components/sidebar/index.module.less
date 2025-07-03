@@ -1,0 +1,56 @@
+@sidebar-width: 200px;
+
+.sidebar {
+  width: 0;
+  height: 100%;
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+  border-right: solid 1px var(--text-caption);
+  display: flex;
+  align-items: center;
+  transform: translateX(calc(-1 * @sidebar-width - 1px));
+
+  &.expand {
+    width: @sidebar-width;
+    transform: translateX(0);
+  }
+
+  .list {
+    max-height: 500px;
+    padding: 20px;
+    font-size: 14px;
+    width: 100%;
+
+    .listItem {
+      padding: 6px 0;
+      color: var(--text-placeholder);
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--text-caption);
+      }
+
+      &.active {
+        color: var(--text-title);
+      }
+    }
+  }
+}
+
+.listIcon {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--icon-n2);
+  transition: left 0.3s ease-in-out;
+
+  &:hover {
+    color: var(--icon-n1);
+  }
+
+  &.expand {
+    left: calc(@sidebar-width - 40px);
+  }
+}
